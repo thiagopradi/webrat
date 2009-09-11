@@ -6,12 +6,13 @@ describe "select" do
       <html>
       <form method="get" action="/login">
         <select name="month"><option value="1">January</option></select>
+        <select name="month"><option value="1">March</option></select>
       </form>
       </html>
     HTML
 
     lambda { select "February", :from => "month" }.should raise_error(Webrat::NotFoundError,
-      "The 'February' option was not found in the \"month\" select box")
+      "The 'February' option was not found in the \"month\" select box - The Available Options are: January | March")
   end
 
   it "should fail if option not found in list specified by element name" do

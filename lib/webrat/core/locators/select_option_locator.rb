@@ -43,7 +43,7 @@ module Webrat
 
       def error_message
         if @id_or_name_or_label
-          "The '#{@option_text}' option was not found in the #{@id_or_name_or_label.inspect} select box"
+          "The '#{@option_text}' option was not found in the #{@id_or_name_or_label.inspect} select box - The Available Options are: #{option_elements.collect{|j| j.inner_html}.join(' | ')}"
         else
           "Could not find option #{@option_text.inspect}"
         end
